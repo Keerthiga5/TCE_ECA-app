@@ -1,0 +1,45 @@
+{
+  "project_info": {
+    "project_number": "609839280112",
+    "firebase_url": "https://tceeca.firebaseio.com",
+    "project_id": "tceeca",
+    "storage_bucket": "tceeca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:609839280112:android:a89e21e1f6c193d9",
+        "android_client_info": {
+          "package_name": "com.example.android.applayout"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "609839280112-7qad5qac0c933po3d21capbt92vehl01.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMh_Shn-hffasCLeI-lKKtYaYhUhIDCoQ"
+        },
+        {
+          "current_key": "AIzaSyCMh_Shn-hffasCLeI-lKKtYaYhUhIDCoQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
