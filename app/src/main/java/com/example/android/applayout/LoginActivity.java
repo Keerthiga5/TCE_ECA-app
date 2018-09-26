@@ -1,6 +1,10 @@
 package com.example.android.applayout;
 
+import android.app.ActionBar;
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -36,6 +40,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
 
         auth = FirebaseAuth.getInstance();
 
@@ -96,6 +101,21 @@ public class LoginActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
 
                                 progressBar.setVisibility(View.GONE);
+                               /* final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this,
+                                        R.style.Progress);
+                                progressDialog.setIndeterminate(true);
+                                progressDialog.setMessage("Logging In...");
+                                progressDialog.show();
+
+                                new android.os.Handler().postDelayed(
+                                        new Runnable() {
+                                            public void run() {
+
+
+                                                progressDialog.dismiss();
+                                            }
+                                        }, 3000);*/
+
                                 if (!task.isSuccessful()) {
 
                                     if (password.length() < 6) {
@@ -112,5 +132,11 @@ public class LoginActivity extends AppCompatActivity {
                         });
             }
         });
+
+    }
+    @Override
+    public void onBackPressed() {
+
+        moveTaskToBack(true);
     }
 }

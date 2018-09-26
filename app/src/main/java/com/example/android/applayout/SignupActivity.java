@@ -11,6 +11,7 @@ package com.example.android.applayout;
         import android.widget.Button;
         import android.widget.EditText;
         import android.widget.ProgressBar;
+        import android.widget.TextView;
         import android.widget.Toast;
 
         import com.example.android.applayout.*;
@@ -22,6 +23,7 @@ package com.example.android.applayout;
 public class SignupActivity extends AppCompatActivity {
 
     private EditText inputEmail, inputPassword;
+    private TextView alreadyamember;
     private Button btnSignIn, btnSignUp, btnResetPassword;
     private ProgressBar progressBar;
     private FirebaseAuth auth;
@@ -34,7 +36,7 @@ public class SignupActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
 
-
+        alreadyamember=(TextView)findViewById(R.id.alreadyamember);
         btnSignUp = (Button) findViewById(R.id.signup);
         inputEmail = (EditText) findViewById(R.id.email);
         inputPassword = (EditText) findViewById(R.id.password);
@@ -83,6 +85,13 @@ public class SignupActivity extends AppCompatActivity {
                             }
                         });
 
+            }
+        });
+        alreadyamember.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(),LoginActivity.class);
+                startActivity(intent);
             }
         });
     }
