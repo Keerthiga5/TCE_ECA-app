@@ -17,6 +17,7 @@
     <style name="AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-    <style name="Progress" parent ="Base.Widget.AppCompat.ProgressBar"/>
+
+    <style name="Progress" parent="Base.Widget.AppCompat.ProgressBar" />
 
 </resources>

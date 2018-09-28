@@ -28,8 +28,8 @@ public class HomeScreenActivity extends AppCompatActivity {
                     return true;
                 }
                 case R.id.navigation_login: {
-                  //  mTextMessage.setText("Login");
-                    Intent intent = new Intent(HomeScreenActivity.this, LoginActivity.class);
+                  // mTextMessage.setText("Login");
+                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                     startActivity(intent);
                     return true;
                 }

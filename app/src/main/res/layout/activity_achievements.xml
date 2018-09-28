@@ -1,0 +1,119 @@
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.android.applayout.ActivitiesActivity">
+
+    <TableRow
+        android:id="@+id/tableRow4"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal">
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:typeface="serif"
+            android:textSize="18dp"
+            android:text="Achievements"
+            android:paddingBottom="20dp"
+            android:gravity="center"
+            android:layout_span="6"></TextView>
+    </TableRow>
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+        <TextView
+            android:id="@+id/TextView14"
+            android:text=""></TextView>
+        <TextView
+            android:id="@+id/TextView04"
+            android:text="Date"
+            android:paddingBottom="20dp"
+            android:paddingRight="20dp"
+            android:textStyle="bold"
+            android:typeface="serif"></TextView>
+        <TextView
+            android:id="@+id/TextView03"
+            android:text="Awards"
+            android:paddingRight="20dp"
+            android:textStyle="bold"
+            android:typeface="serif"></TextView>
+
+
+    </TableRow>
+    <TableRow
+        android:id="@+id/tableRow2"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+        <TextView
+            android:id="@+id/TextView05"
+            android:text=""></TextView>
+        <TextView
+            android:id="@+id/TextView06"
+            android:text="14/09/2017"
+            android:paddingBottom="10dp"
+            android:paddingRight="20dp"
+            android:textStyle="bold"
+            android:typeface="serif"></TextView>
+        <TextView
+            android:id="@+id/TextView07"
+            android:text="Best NSS Student of the Year"
+            android:paddingRight="20dp"
+            android:textStyle="bold"
+            android:typeface="serif"></TextView>
+
+
+    </TableRow>
+    <TableRow
+        android:id="@+id/tableRow3"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+        <TextView
+            android:id="@+id/TextView15"
+            android:text=""></TextView>
+        <TextView
+            android:id="@+id/TextView016"
+            android:text="18/01/2018"
+            android:paddingBottom="10dp"
+            android:paddingRight="20dp"
+            android:textStyle="bold"
+            android:typeface="serif"></TextView>
+        <TextView
+            android:id="@+id/TextView17"
+            android:text="Secured More Points during the Camp"
+            android:paddingRight="20dp"
+            android:textStyle="bold"
+            android:typeface="serif"></TextView>
+
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow5"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+        <TextView
+            android:id="@+id/TextView25"
+            android:text=""></TextView>
+        <TextView
+            android:id="@+id/TextView026"
+            android:text="06/07/2018"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
+            android:textStyle="bold"
+            android:typeface="serif"></TextView>
+        <TextView
+            android:id="@+id/TextView27"
+            android:text="Award for maintaining full attendance"
+            android:paddingRight="20dp"
+            android:textStyle="bold"
+            android:typeface="serif"></TextView>
+
+
+    </TableRow>
+</TableLayout>

@@ -9,6 +9,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private ProgressBar progressBar;
     private Button btnSignup, btnLogin, btnReset;
-
+    private FirebaseAuth.AuthStateListener mAuthListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,12 +45,13 @@ public class LoginActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
 
+
        if (auth.getCurrentUser()!= null) {
            startActivity(new Intent(LoginActivity.this, MainActivity.class));
             finish();
         }
 
-        setContentView(R.layout.activity_login);
+       // setContentView(R.layout.activity_login);
         inputEmail = (EditText) findViewById(R.id.nssid);
         inputPassword = (EditText) findViewById(R.id.password);
         progressBar = (ProgressBar) findViewById(R.id.login_progress);
@@ -58,7 +60,23 @@ public class LoginActivity extends AppCompatActivity {
         reset = (TextView) findViewById(R.id.forgotpassword);
 
 
-        auth = FirebaseAuth.getInstance();
+//       auth = FirebaseAuth.getInstance();
+       mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+               if (user != null) {
+                    // User is signed in
+                    Log.d("aaaa", "onAuthStateChanged:signed_in:" + user.getUid());
+                    //toastMessage("Successfully signed in with: " + user.getEmail());
+                } else {
+                     //User is signed out
+                    Log.d("aaaa", "onAuthStateChanged:signed_out");
+                   // toastMessage("Successfully signed out.");
+                }
+
+            }
+        };
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,6 +142,22 @@ public class LoginActivity extends AppCompatActivity {
                                         Toast.makeText(LoginActivity.this, "Authentication error", Toast.LENGTH_LONG).show();
                                     }
                                 } else {
+                                    //mAuthListener = new FirebaseAuth.AuthStateListener() {
+                                        //@Override
+                                        //public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                                      //      FirebaseUser user = firebaseAuth.getCurrentUser();
+                                         //   if (user != null) {
+                                                // User is signed in
+                                                //Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+                                                //Toast.makeText(this,"Successfully signed in with: " + user.getEmail(),Toast.LENGTH_SHORT).show();
+                                           // } else {
+                                                // User is signed out
+                                              //  Log.d(TAG, "onAuthStateChanged:signed_out");
+                                               // toastMessage("Successfully signed out.");
+                                        //    }
+                                            // ...
+                                        //}
+                                    //};
                                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                     startActivity(intent);
                                     finish();
@@ -138,5 +172,18 @@ public class LoginActivity extends AppCompatActivity {
     public void onBackPressed() {
 
         moveTaskToBack(true);
+    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        auth.addAuthStateListener(mAuthListener);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            auth.removeAuthStateListener(mAuthListener);
+        }
     }
 }
